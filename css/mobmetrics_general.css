@@ -1,0 +1,147 @@
+/**/
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	background-color:#eeeeff;
+	color:#112255;
+	font-family:Arial,verdana,sans-serif;
+	margin:0px;
+}
+/* START HEADER */
+header{
+	background-color:#eeeeff;
+	height:60px;
+	margin:auto;
+	min-width:1366px;
+}
+header h1{
+	padding-top:10px;
+	padding-left:20px;
+}
+/* END HEADER */
+
+/* START NAV MENU */
+
+nav {
+	width: 100%;
+	float: left;
+	margin: 0 0 1em 0;
+	padding: 0;
+	background-color: #112255;
+	border-bottom: 2px solid #ffffff;  
+}	
+nav ul {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+nav ul li {
+  display: block;
+  position: relative;
+  float: left;
+}
+nav li ul { 
+  display: none; 
+}
+ 
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 7px 15px 3px 5px;
+  background: #112255;
+  color: #eeeeff;
+  margin-left: 1px;
+  white-space: nowrap;
+  height:30px;
+  width:90px;
+  text-align:center;
+}
+nav ul li a:hover { 
+  background: #617F8A; 
+}
+ 
+nav li:hover ul {
+  display: block;
+  position: absolute;
+  height:30px;
+}
+ 
+nav li:hover li {
+  float: none;
+  font-size: 11px;
+ 
+}
+ 
+nav li:hover a { 
+  background: #3A464F; 
+  height:30px;
+}
+
+nav li:hover li a:hover { 
+  background: #95A9B1; 
+}
+ 
+nav ul li ul li a {
+    text-align:left;
+}
+/* END NAV MENU */
+
+/* START CONTENT */
+#content {
+	height:auto;
+	min-height:550px;
+}
+/* END CONTENT */
+
+/* START FOOTER */
+footer {
+	clear:both;
+	height: 40px;
+	margin-top: -10px;
+	padding-top:20px;
+	position: relative;
+	text-align:center;
+	width:100%;
+}
+/* END FOOTER */
+
+
+
+/* START TABLE */
+table tbody td { vertical-align:top;}
+.table-summary { margin:auto; width:98%;}
+
+
+.summary {
+	background-color:#35576B;
+	margin:auto;
+	width:auto;
+}
+table caption {
+	font-size:25px;
+	padding-bottom:20px;
+}
+.left-table {
+	text-align:left;
+} 
+.right-table {
+	text-align:left;
+}
+.summary thead { 
+	background: #35576B;
+	color: #eeeeff;
+	margin:0;
+	text-align:center;
+}
+.summary tbody { background:#35576B; margin-top:5px; }
+.summary tbody td { background:#ffffff; padding:5px; }
+
+
+
+
+
+/* END TABLE */

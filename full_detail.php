@@ -95,7 +95,7 @@ $db = new DBmanager();
   				$results = getRecords("id,bwdown,bwup","mob_plan",$where);
   				$data = $results[0];
   				?>
-  				<h1>Plans </h1>
+  				<h1>Information </h1>
   				<ul class="nav nav-tabs" id="plantabs">
   					<li><a href="#plan<?=$data['id']?>" data-toggle="tab">Plan<?=$data['id']?> | <?=$data['bwdown']?>/<?=$data['bwup']?></a></li>
   				</ul>

@@ -1,5 +1,6 @@
 <?
 include_once("lib/config.php");
+include_once("lib/Paginator.php");
 $db = new DBmanager();
 ?>
 <!DOCTYPE html>
@@ -89,31 +90,23 @@ $db = new DBmanager();
     			</table>
   			</div>
   			<div class="span12" >
-  				<h1>Plans</h1>
   				<?
-  				$where = "id in (select plan from mob_device_plan where device =".$_GET['device_id']." order by plan )";
+  				$where = " id =".$_GET['plan_id'];
   				$results = getRecords("id,bwdown,bwup","mob_plan",$where);
+  				$data = $results[0];
   				?>
+  				<h1>Plans </h1>
   				<ul class="nav nav-tabs" id="plantabs">
-  					<?
-  					foreach($results as $data){
-  					?>
-  						<li><a href="#plan<?=$data['id']?>" data-toggle="tab">Plan<?=$data['id']?> | <?=$data['bwdown']?>/<?=$data['bwup']?></a></li>
-  					<?
-					}
-  					?>
-				</ul>
+  					<li><a href="#plan<?=$data['id']?>" data-toggle="tab">Plan<?=$data['id']?> | <?=$data['bwdown']?>/<?=$data['bwup']?></a></li>
+  				</ul>
 				<div class="tab-content">
-				<?
-				foreach($results as $data){
-				?>
   				<div class="tab-pane" id="plan<?=$data['id']?>">
   					<!-- Content of tab-->
   					<div class="span6">
   						<table class="table table-bordered table-striped" style="background-color: #d5ffd5">
   							<thead>
   								<tr>
-  									<th colspan="3">Bandwidth DOWN</th>
+  									<th colspan="4">Bandwidth DOWN</th>
   								</tr>
   							</thead>
   							<thead>
@@ -121,6 +114,7 @@ $db = new DBmanager();
   									<th>#</th>
   									<th>Check datetime</th>
   									<th>BW-down (bits)</th>
+  									<th>(megabits)</th>
   								</tr>
   							</thead>
   							<tbody>
@@ -129,7 +123,10 @@ $db = new DBmanager();
   									echo '<tr><td colspan="3">Records does not exist.</td></tr>';
   								}
 								else {
-									$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT 40";
+									if(isset($_GET['offset']))
+										$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT ".$_GET['offset'].",40";
+									else 
+										$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT 0,40";
   									$results = getRecords("datereg,bw","mob_bwdown",$where);
 									$count = 1;
 									foreach($results as $dbw){
@@ -144,10 +141,24 @@ $db = new DBmanager();
   										<td><?=$count?></td>
   										<td><?=$dbw['datereg']?></td>
   										<td><?=$dbw['bw']?></td>
+  										<td><?=number_format(((intval($dbw['bw'])/1024)/1024),4,'.','')?></td>
   									</tr>
   								<?
   									$count++;
 									}
+									?>
+									<tr>
+										<td colspan="4">
+										<?
+										$total = countRecords("mob_bwdown","device = ".$_GET['device_id']." and plan = ".$data['id']);
+										if(isset($_GET['offset']))
+											Paginator::paginate($_GET['offset'],$total,40,"full_detail.php?device_id=".$_GET['device_id']."&plan_id=".$data['id']."&offset=");
+										else
+											Paginator::paginate(0,$total,40,"full_detail.php?device_id=".$_GET['device_id']."&plan_id=".$data['id']."&offset=");
+										?>			
+										</td>
+									</tr>
+									<?
 								}
   								?>
   							</tbody>
@@ -157,7 +168,7 @@ $db = new DBmanager();
   						<table class="table table-bordered table-striped" style="background-color: #e9edff">
   							<thead>
   								<tr>
-  									<th colspan="3">Bandwidth UP</th>
+  									<th colspan="4">Bandwidth UP</th>
   								</tr>
   							</thead>
   							<thead>
@@ -165,6 +176,7 @@ $db = new DBmanager();
   									<th>#</th>
   									<th>Check datetime</th>
   									<th>BW-UP (bits)</th>
+  									<th>(megabits)</th>
   								</tr>
   							</thead>
   							<tbody>
@@ -173,7 +185,10 @@ $db = new DBmanager();
   									echo '<tr><td colspan="3">Records does not exist.</td></tr>';
   								}
 								else {
-									$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT 40";
+									if(isset($_GET['offset']))
+										$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT ".$_GET['offset'].",40";
+									else 
+										$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT 0,40";
   									$results = getRecords("datereg,bw","mob_bwup",$where);
 									$count = 1;
 									foreach($results as $dbw){
@@ -182,20 +197,31 @@ $db = new DBmanager();
   										<td><?=$count?></td>
   										<td><?=$dbw['datereg']?></td>
   										<td><?=$dbw['bw']?></td>
+  										<td><?=number_format(((intval($dbw['bw'])/1024)/1024),4,'.','')?></td>
   									</tr>
   								<?
   									$count++;
 									}
+									?>
+									<tr>
+										<td colspan="4">
+										<?
+										$total = countRecords("mob_bwup","device = ".$_GET['device_id']." and plan = ".$data['id']);
+										if(isset($_GET['offset']))
+											Paginator::paginate($_GET['offset'],$total,40,"full_detail.php?device_id=".$_GET['device_id']."&plan_id=".$data['id']."&offset=");
+										else
+											Paginator::paginate(0,$total,40,"full_detail.php?device_id=".$_GET['device_id']."&plan_id=".$data['id']."&offset=");
+										?>	
+										</td>
+									</tr>
+									<?
 								}
   								?>
   							</tbody>
   						</table>
   					</div><!-- /span6 -->
-  					<!-- end content tab -->
+  					
   					</div>
-				<?
-				}
-				?>
 				</div><!-- /tab-content -->
   			</div>
   		</div> <!-- /span12-->

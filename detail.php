@@ -113,7 +113,10 @@ $db = new DBmanager();
   						<table class="table table-bordered table-striped" style="background-color: #d5ffd5">
   							<thead>
   								<tr>
-  									<th colspan="3">Bandwidth DOWN</th>
+  									<th colspan="4">
+  										Bandwidth DOWN
+ 										<input type="button" class="btn btn-info" onClick="window.location='full_detail.php?device_id=<?=$_GET['device_id']?>&plan_id=<?=$data['id']?>'" value="Full Records">
+  									</th>
   								</tr>
   							</thead>
   							<thead>
@@ -121,12 +124,13 @@ $db = new DBmanager();
   									<th>#</th>
   									<th>Check datetime</th>
   									<th>BW-down (bits)</th>
+  									<th>(megabits)</th>
   								</tr>
   							</thead>
   							<tbody>
   								<?
   								if ( countRecords("mob_bwdown","device=".$_GET['device_id']." and plan=".$data['id']) == 0 ){
-  									echo '<tr><td colspan="3">Records does not exist.</td></tr>';
+  									echo '<tr><td colspan="4">Records does not exist.</td></tr>';
   								}
 								else {
 									$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT 40";
@@ -144,6 +148,7 @@ $db = new DBmanager();
   										<td><?=$count?></td>
   										<td><?=$dbw['datereg']?></td>
   										<td><?=$dbw['bw']?></td>
+  										<td><?=number_format(((intval($dbw['bw'])/1024)/1024),4,'.','')?></td>
   									</tr>
   								<?
   									$count++;
@@ -157,20 +162,23 @@ $db = new DBmanager();
   						<table class="table table-bordered table-striped" style="background-color: #e9edff">
   							<thead>
   								<tr>
-  									<th colspan="3">Bandwidth UP</th>
+  									<th colspan="4">Bandwidth UP
+  									<input type="button" class="btn btn-info" onClick="window.location='full_detail.php?device_id=<?=$_GET['device_id']?>&plan_id=<?=$data['id']?>'" value="Full Records">
+  									</th>
   								</tr>
   							</thead>
   							<thead>
   								<tr>
   									<th>#</th>
   									<th>Check datetime</th>
-  									<th>BW-UP (bits)</th>
+  									<th>BW-up (bits)</th>
+  									<th>(megabits)</th>
   								</tr>
   							</thead>
   							<tbody>
   								<?
   								if ( countRecords("mob_bwup","device=".$_GET['device_id']." and plan=".$data['id']) == 0 ){
-  									echo '<tr><td colspan="3">Records does not exist.</td></tr>';
+  									echo '<tr><td colspan="4">Records does not exist.</td></tr>';
   								}
 								else {
 									$where = "device=".$_GET['device_id']." and plan=".$data['id']." ORDER BY datereg desc LIMIT 40";
@@ -182,6 +190,7 @@ $db = new DBmanager();
   										<td><?=$count?></td>
   										<td><?=$dbw['datereg']?></td>
   										<td><?=$dbw['bw']?></td>
+  										<td><?=number_format(((intval($dbw['bw'])/1024)/1024),4,'.','')?></td>
   									</tr>
   								<?
   									$count++;

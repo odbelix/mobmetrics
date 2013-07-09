@@ -1,5 +1,5 @@
 <?php
-include_once("config.php");
+include_once("DBmanager.php");
 $db = new DBmanager();
 	
 
@@ -30,3 +30,17 @@ function getRecords($field='*',$table,$where,$debug=0){
 }	
 	
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

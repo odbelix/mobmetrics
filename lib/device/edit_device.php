@@ -1,4 +1,5 @@
 <?php
+echo $_GET['device_id'];
 ?>
     <table class="table table-bordered table-striped">
     	<caption>View device details</caption>
@@ -36,7 +37,7 @@
   			    				<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
   			    				<ul class="dropdown-menu">
     			    				<li><a href="detail.php?device_id=<?=$data['id']?>"><i class="icon-info-sign"></i>View detail</a></li>
-    			    				<li><a href="device.php?view=ed&device_id=<?=$data['id']?>"><i class="icon-info-sign"></i>Edit information</a></li>
+    			    				<li><a href="detail.php?device_id=<?=$data['id']?>"><i class="icon-info-sign"></i>Edit information</a></li>
   			    				</ul>
 		   					</div>
     				<!-- END OPTIONS -->

@@ -1,4 +1,9 @@
-<?
+<?php
+/***********************************************************************
+*
+*  Author:: Manuel Moscoso <mmoscoso@mobiquos.cl>
+* Copyright 2013, Mobiquos LTDA
+************************************************************************/
 include_once("lib/config.php");
 include_once("lib/Paginator.php");
 $db = new DBmanager();
@@ -37,9 +42,10 @@ $db = new DBmanager();
           <a class="brand" href="index.php">mobmetrics</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="index.php">Home</a></li>
-              <li><a href="device.php?view=d">Equipos</a></li>
-              <li><a href="device.php?view=p">Planes</a></li>
+              <li class="active"><a href="index.php"><?=home?></a></li>
+              <li><a href="device.php?view=d"><?=devices?></a></li>
+              <li><a href="device.php?view=p"><?=plans?></a></li>
+              <li><a href="device.php?view=p"><?=config?></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

@@ -1,4 +1,9 @@
-<?
+<?php
+/***********************************************************************
+*
+*  Author:: Manuel Moscoso <mmoscoso@mobiquos.cl>
+* Copyright 2013, Mobiquos LTDA
+************************************************************************/
 include_once("lib/config.php");
 ?>
 <!DOCTYPE html>

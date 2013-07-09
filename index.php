@@ -38,12 +38,9 @@ include_once("lib/config.php");
           </button>
           <a class="brand" href="index.php">mobmetrics</a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="index.php"><?=home?></a></li>
-              <li><a href="device.php?view=d"><?=devices?></a></li>
-              <li><a href="device.php?view=p"><?=plans?></a></li>
-              <li><a href="device.php?view=p"><?=config?></a></li>
-            </ul>
+            <?
+            include_once('lib/menu/main.php');
+            ?>
           </div><!--/.nav-collapse -->
         </div>
       </div>

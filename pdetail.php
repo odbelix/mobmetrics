@@ -40,12 +40,9 @@ $db = new DBmanager();
           </button>
           <a class="brand" href="#">mobmetrics</a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="index.php">Home</a></li>
-              <li><a href="device.php?view=d">Equipos</a></li>
-              <li><a href="device.php?view=p">Planes</a></li>
-              <li><a href="contact">Contacto</a></li>
-            </ul>
+            <?
+            include_once('lib/menu/main.php');
+            ?>
           </div><!--/.nav-collapse -->
         </div>
       </div>

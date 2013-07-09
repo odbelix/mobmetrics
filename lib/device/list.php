@@ -1,7 +1,7 @@
 <?php
 ?>
     <table class="table table-bordered table-striped">
-    	<caption>View device details</caption>
+    	<caption><h1><?=device_detailtitle?></h1></caption>
     	<thead>
     		<tr>
     			<th>#</th>
@@ -32,11 +32,10 @@
     				?>
     				<!-- OPTIONS-->
     						<div class="btn-group">
-       		    				<a class="btn btn-primary" href="#"><i class="icon-cog icon-white"></i> Options</a>
+       		    				<a class="btn btn-primary" href="#"><i class="icon-cog icon-white"></i><?=options?></a>
   			    				<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
   			    				<ul class="dropdown-menu">
-    			    				<li><a href="detail.php?device_id=<?=$data['id']?>"><i class="icon-info-sign"></i>View detail</a></li>
-    			    				<li><a href="device.php?view=ed&device_id=<?=$data['id']?>"><i class="icon-info-sign"></i>Edit information</a></li>
+    			    				<li><a href="detail.php?device_id=<?=$data['id']?>"><i class="icon-info-sign"></i><?=view_detail?></a></li>
   			    				</ul>
 		   					</div>
     				<!-- END OPTIONS -->

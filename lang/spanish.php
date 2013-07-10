@@ -9,6 +9,8 @@ define("home","Inicio");
 define("devices","Equipos");
 define("plans","Planes");
 define("config","Configuraci&oacute;n");
+define("reports","Reportes");
+
 
 define("summar_devicetitle","Informacion de Equipos");
 define("summar_menunavtitle","Barra Menu");
@@ -21,6 +23,7 @@ define("options","Opciones");
 define("view_detail","Ver detalle");
 define("information","Informacion");
 define("notexists","No existen registros");
+define("download","Descargar ");
 
 //Menunav vertical
 define("view_device","Ver detalle de Equipos");
@@ -49,6 +52,8 @@ define("bwdown_bits","AB-Descarga (bits)");
 define("bwup_bits","AB-Carga (bits)");
 define("kbps","(kbps)");
 
+//Report
+define("report_title","Reportes del Mediciones");
 
 
 ?>

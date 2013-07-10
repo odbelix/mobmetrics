@@ -71,6 +71,9 @@ $db = new DBmanager();
 					case 'ed':
 						include_once("lib/device/edit_device.php?device_id=1");
 						break;
+					case 'r':
+						include_once("lib/report/main.php");
+						break;
 				}
 			}
 			else {

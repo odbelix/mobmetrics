@@ -17,6 +17,14 @@
     		$query = "select * from mob_plan order by id";
 			$results = $db->execute($query);
 			$i=1;
+			if(count($results)==0){
+				?>
+				<tr>
+					<td colspan="6"><?=notexists?></td>
+				</tr>
+				<?
+			}
+			
 			foreach($results as $data) {
 				$option_device = countRecords("mob_device_plan"," plan = ".$data['id']);
     		?>

@@ -25,6 +25,7 @@ define("information","Informacion");
 define("notexists","No existen registros");
 define("download","Descargar ");
 define("view","Visualizar");
+define("name","Nombre");
 define("error","No se tiene instalados plugin para Documents Excel");
 
 //Menunav vertical
@@ -43,6 +44,7 @@ define("plan_images","Plan - Imagenes");
 define("device_name","Nombre");
 define("device_mac","MAC equipo");
 define("device_ip","Direccion IP");
+define("device_plans","Planes");
 define("device_fullrecords","Todos los Registros");
 define("device_bwdown","Ancho de Banda - Descarga");
 define("device_bwup","Ancho de Banda - Carga");
@@ -56,6 +58,7 @@ define("kbps","(kbps)");
 
 //Report
 define("report_title","Reportes del Mediciones");
+define("report_notreport","No existen el Reportes vigentes");
 
 
 ?>

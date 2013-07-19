@@ -5,10 +5,10 @@
     	<thead>
     		<tr>
     			<th>#</th>
-    			<th>Device name</th>
-    			<th>Device IP</th>
-    			<th>Device MAC</th>
-    			<th>Device's plan</th>
+    			<th><?=device_name?></th>
+    			<th><?=device_ip?></th>
+    			<th><?=device_mac?></th>
+    			<th><?=device_plans?></th>
     			<th></th>
     		</tr>
     	</thead>
@@ -17,6 +17,13 @@
     		$query = "select * from mob_device order by id";
 			$results = $db->execute($query);
 			$i=1;
+			if(count($results) ==  0){
+				?>
+				<tr>
+					<td colspan="6"><?=notexists?></td>
+				</tr>
+				<?
+			}
 			foreach($results as $data) {
 				$option_plans = countRecords("mob_device_plan"," device = ".$data['id']);
     		?>

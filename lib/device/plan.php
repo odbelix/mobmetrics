@@ -25,7 +25,17 @@
     			<td><?=$data['bwdown']?></td>
     			<td><?=$data['bwup']?></td>
     			<td><?=$option_device?></td>
-    			<td><center><a href="images.php?plan=<?=$data['id']?>" target="_blank"><img width="77" src="rrdimages/img-<?=$data['id']?>-6h.png" alt="Imagenes de Plan"></img></a></center></td>
+    			<td>
+    				<?
+    				if(file_exists('rrdimages/img-'.$data['id'].'-6h.png')){
+    				?>
+    				<center><a href="images.php?plan=<?=$data['id']?>" target="_blank"><img width="77" src="rrdimages/img-<?=$data['id']?>-6h.png" alt="Imagenes de Plan"></img></a></center></td>
+    				<?
+    				}
+					else {
+						echo notexists;
+					}
+    				?>
     			<td>
     				<?
     				if( $option_device!=0 ){

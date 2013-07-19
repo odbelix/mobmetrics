@@ -4,8 +4,8 @@
     	<caption><h1><?=report_title?></h1></caption>
     	<thead>
     		<tr>
-    			<th>Nombre</th>
-    			<th>Descargar</th>
+    			<th><?=name?></th>
+    			<th><?=download?></th>
     		</tr>
     	</thead>
     	<tbody>
@@ -31,7 +31,7 @@
 			else {
 				?>
 				<tr class="error">
-    				<td colspan="2">No existen el Reportes vigentes</td>
+    				<td colspan="2"><?=report_notreport?></td>
     			</tr>
     			<?
 			}

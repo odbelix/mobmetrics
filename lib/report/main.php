@@ -15,7 +15,7 @@
     		//$pathreport = "js/";
 			if ($handle = opendir($pathreport)) {
 		    	while (false !== ($file = readdir($handle))) {
-		    		if($file != '..' || $file != '.') {
+		    		if($file != '..' && $file != '.') {
     			?>
     			<tr>
     				<td><?=$file?></td>

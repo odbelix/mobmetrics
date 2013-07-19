@@ -74,6 +74,9 @@ $db = new DBmanager();
 					case 'r':
 						include_once("lib/report/main.php");
 						break;
+					case 'v':
+						$pathreport = str_replace("'","",$_GET['file']);
+						include_once("lib/report/view.php");
 				}
 			}
 			else {

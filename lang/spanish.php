@@ -24,6 +24,8 @@ define("view_detail","Ver detalle");
 define("information","Informacion");
 define("notexists","No existen registros");
 define("download","Descargar ");
+define("view","Visualizar");
+define("error","No se tiene instalados plugin para Documents Excel");
 
 //Menunav vertical
 define("view_device","Ver detalle de Equipos");

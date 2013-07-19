@@ -10,7 +10,7 @@
     							echo getRecord("datereg","mob_bwdown","device=device order by datereg desc limit 1");
 							}
 							else {
-								echo "Not records";	
+								echo notexists;	
 							}
     						?></td></tr>
     					<tr><td><?=currenttime?></td><td><?  echo date('m/d/Y h:i:s a', time()); ?></td></tr>
@@ -29,7 +29,7 @@
 								echo '<a alt="View devices" href="device.php?view=d">'.$count.'</a>';
 							}
 							else {
-								echo 'Device does not exist';
+								echo notexists;
 							}
     						?></td></tr>
     					<tr><td><?=totalplans?></td><td><?
@@ -38,7 +38,7 @@
 								echo '<a alt="View plans" href="device.php?view=p">'.$count.'</a>';
 							}
 							else {
-								echo 'Plan does not exist';
+								echo notexists;
 							}
 							?>
     						</td></tr>

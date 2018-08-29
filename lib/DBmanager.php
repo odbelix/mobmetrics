@@ -2,10 +2,7 @@
 
 class DBmanager {
         
-		const DB_NAME = 'mobmetrics';
-        #const DB_HOST = "dbases.utalca.cl";
-        #const DB_USER = 'u_teleco';
-        #const DB_PASS = 'tele.13';
+	const DB_NAME = 'mobmetrics';
         const DB_HOST = "localhost";
         const DB_USER = 'root';
         const DB_PASS = '1234567890';
